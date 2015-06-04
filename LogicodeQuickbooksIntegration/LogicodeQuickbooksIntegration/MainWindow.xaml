@@ -1,0 +1,23 @@
+﻿<Window x:Class="LogicodeQuickbooksIntegration.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Logicode Quickbooks Integration" Height="480" Width="640">
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" x:Name="firstTimePanel" Visibility="Visible">
+            <TextBlock>This is the first time you run the app, we need migrate data from Quickbooks to Odoo.</TextBlock>
+            <TextBlock>Please select your import options:</TextBlock>
+            <CheckBox x:Name="ckbCustomers">Customers</CheckBox>
+            <CheckBox x:Name="ckbInventories">Inventories</CheckBox>
+            <CheckBox x:Name="ckbInvoices">Invoices</CheckBox>
+            <CheckBox x:Name="ckbRefunds">Refunds</CheckBox>
+            <Button x:Name="bulkImport" Click="bulkImport_Click">Import data to Odoo</Button>
+            <Button x:Name="importLagFile" Click="importLagFile_Click">Import Lagasse file to Ecommerce</Button>
+
+        </StackPanel>
+        <StackPanel Orientation="Vertical" x:Name="secondPanel" Visibility="Hidden">
+            <TextBlock>You already imported data from Quickbooks to Odoo</TextBlock>
+            <TextBlock>If you want sync data between Quickbooks and Odoo. Please don't close this app. Thanks!</TextBlock>
+            <Button>Turn off sync data features</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

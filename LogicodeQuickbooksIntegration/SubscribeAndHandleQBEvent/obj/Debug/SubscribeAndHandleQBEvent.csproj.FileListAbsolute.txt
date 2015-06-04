@@ -1,0 +1,37 @@
+C:\Program Files (x86)\Intuit\IDN\QBSDK13.0\samples\qbdt\c-sharp\qbXML\SubscribeAndHandleQBEvent_vs03\obj\Debug\Interop.QBSDKEVENTLib.dll
+C:\Program Files (x86)\Intuit\IDN\QBSDK13.0\samples\qbdt\c-sharp\qbXML\SubscribeAndHandleQBEvent_vs03\obj\Debug\SubscribeAndHandleQBEvent.csproj.ResolveComReference.cache
+C:\Program Files (x86)\Intuit\IDN\QBSDK13.0\samples\qbdt\c-sharp\qbXML\SubscribeAndHandleQBEvent_vs03\bin\Debug\SubscribeAndHandleQBEvent.exe
+C:\Program Files (x86)\Intuit\IDN\QBSDK13.0\samples\qbdt\c-sharp\qbXML\SubscribeAndHandleQBEvent_vs03\bin\Debug\SubscribeAndHandleQBEvent.pdb
+C:\Program Files (x86)\Intuit\IDN\QBSDK13.0\samples\qbdt\c-sharp\qbXML\SubscribeAndHandleQBEvent_vs03\bin\Debug\Interop.QBSDKEVENTLib.dll
+C:\Program Files (x86)\Intuit\IDN\QBSDK13.0\samples\qbdt\c-sharp\qbXML\SubscribeAndHandleQBEvent_vs03\obj\Debug\SubscribeAndHandleQBEvent.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Intuit\IDN\QBSDK13.0\samples\qbdt\c-sharp\qbXML\SubscribeAndHandleQBEvent_vs03\obj\Debug\SubscribeAndHandleQBEvent.exe
+C:\Program Files (x86)\Intuit\IDN\QBSDK13.0\samples\qbdt\c-sharp\qbXML\SubscribeAndHandleQBEvent_vs03\obj\Debug\SubscribeAndHandleQBEvent.pdb
+C:\Program Files (x86)\Intuit\IDN\QBSDK13.0\samples\qbdt\c-sharp\qbXML\SubscribeAndHandleQBEvent_vs03\bin\Debug\SubscribeAndHandleQBEvent.exe.config
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\bin\Debug\SubscribeAndHandleQBEvent.exe.config
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\Interop.QBSDKEVENTLib.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.csproj.ResolveComReference.cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.exe
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\bin\Debug\SubscribeAndHandleQBEvent.exe
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\bin\Debug\SubscribeAndHandleQBEvent.pdb
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\bin\Debug\Interop.QBSDKEVENTLib.dll
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\bin\Debug\SubscribeAndHandleQBEvent.exe.config
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\bin\Debug\SubscribeAndHandleQBEvent.exe
+C:\Users\admin\Documents\Visual Studio 2013\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\bin\Debug\SubscribeAndHandleQBEvent.pdb
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\bin\Debug\SubscribeAndHandleQBEvent.exe.config
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\bin\Debug\SubscribeAndHandleQBEvent.exe
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\bin\Debug\SubscribeAndHandleQBEvent.pdb
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.csprojResolveAssemblyReference.cache
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\Interop.QBSDKEVENTLib.dll
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.csproj.ResolveComReference.cache
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.exe
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.pdb
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\bin\Debug\SubscribeAndHandleQBEvent.exe.config
+D:\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\Interop.QBSDKEVENTLib.dll
+D:\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.csproj.ResolveComReference.cache
+D:\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.exe
+D:\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.pdb
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\bin\Debug\SubscribeAndHandleQBEvent.exe
+D:\Projects\LogicodeQuickbooksIntegration\LogicodeQuickbooksIntegration\bin\Debug\SubscribeAndHandleQBEvent.pdb
+D:\Projects\LogicodeQuickbooksIntegration\SubscribeAndHandleQBEvent\obj\Debug\SubscribeAndHandleQBEvent.csprojResolveAssemblyReference.cache

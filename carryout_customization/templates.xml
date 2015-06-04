@@ -1,0 +1,194 @@
+<openerp>
+    <data>
+        <record id="act_justify_image" model="workflow.activity">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="name">justify_image</field>
+        </record>
+        <record id="act_image_rejected" model="workflow.activity">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="name">image_rejected</field>
+        </record>
+        <record id="act_justify_ai" model="workflow.activity">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="name">justify_ai</field>
+        </record>        
+        <record id="act_ai_rejected" model="workflow.activity">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="name">ai_rejected</field>
+        </record>
+        <record id="sale.trans_draft_router" model="workflow.transition">
+            <field name="act_from" ref="sale.act_draft"/>
+            <field name="act_to" ref="act_justify_image"/>
+            <field name="signal">order_confirm</field>
+        </record>
+        <record id="sale.trans_sent_router" model="workflow.transition">
+            <field name="act_from" ref="sale.act_sent"/>
+            <field name="act_to" ref="act_justify_image"/>
+            <field name="signal">order_confirm</field>
+        </record>
+        <record id="trans_justify_router" model="workflow.transition">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="act_from" ref="act_justify_image"/>
+            <field name="act_to" ref="act_justify_ai"/>
+            <field name="signal">image_approve</field>
+        </record>
+        <record id="trans_justify_rejected_image" model="workflow.transition">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="act_from" ref="act_justify_image"/>
+            <field name="act_to" ref="act_image_rejected"/>
+            <field name="signal">image_disapprove</field>
+        </record>    
+        <record id="sale.trans_image_rejected_justify_image" model="workflow.transition">
+            <field name="act_from" ref="act_image_rejected"/>
+            <field name="act_to" ref="act_justify_image"/>
+            <field name="signal">order_confirm</field>
+        </record>    
+        <record id="trans_justify_ai_router" model="workflow.transition">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="act_from" ref="act_justify_ai"/>
+            <field name="act_to" ref="sale.act_router"/>
+            <field name="signal">ai_approve</field>
+        </record>
+        <record id="trans_justify_rejected_ai" model="workflow.transition">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="act_from" ref="act_justify_ai"/>
+            <field name="act_to" ref="act_ai_rejected"/>
+            <field name="signal">ai_disapprove</field>
+        </record>
+         <record id="trans_rejected_justify_ai" model="workflow.transition">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="act_from" ref="act_ai_rejected"/>
+            <field name="act_to" ref="act_justify_ai"/>
+            <field name="signal">image_approve</field>
+        </record>
+        <record id="view_order_form_customized_image" model="ir.ui.view">
+            <field name="name">sale.order.form.customized.image</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                <div attrs="{'invisible': [('state','not in',('justify_image', 'justify_ai', 'image_rejected','ai_rejected','manual'))]}">
+                        <field name="customize_image" widget='image' class="oe_left oe_avatar" options='{"preview_image": "customize_image", "size": [320, 240]}'/>
+                </div>
+                <div attrs="{'invisible': [('state','not in',('justify_image', 'justify_ai', 'image_rejected','ai_rejected','manual'))]}">
+                       <field name="attachment_ids" widget="many2many_binary" String="AI Files"/>
+                </div> 
+                </xpath>
+                <xpath expr="//button[@name='invoice_corrected']" position="after">
+                    <button name="approve_image" string="Send AI layout to Customer" type="object" states="justify_image,ai_rejected" class="oe_highlight" groups="base.group_user"/>
+                </xpath>
+                <xpath expr="//button[@name='invoice_corrected']" position="after">
+                    <button name="disapprove_image" string="Disapprove image" type="object" states="justify_image" class="oe_highlight" groups="base.group_user"/>
+                </xpath>
+                <xpath expr="//button[@name='invoice_corrected']" position="after">
+                    <button name="approve_ai" string="Confirm sale" type="object" states="justify_ai" class="oe_highlight" groups="base.group_user"/>
+                </xpath>
+            </field>            
+        </record>
+        <template id="so_quotation_customize" name="so.quotation.customize" inherit_id="website_quote.so_quotation">
+            <xpath expr="//a[@id='pricing']" position="before">
+                    <section data-snippet-id="title" t-if="quotation.state in ('draft','sent','justify_image', 'image_rejected')">
+                      <h1 class="page-header">Customize your product</h1>
+                      <h4 class="oe_inline" contenteditable="true">Please upload your image</h4>                      
+                      <span id="myCustomImage" class="oe_inline" contenteditable="true" t-field="quotation.customize_image" t-field-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;img-rounded&quot;}"/>
+                    </section>
+                    <section data-snippet-id="title" t-if="quotation.state in ('justify_ai', 'ai_rejected')">
+                      <h1 class="page-header">Please review your generated AI layouts</h1>
+                    
+                      <t t-foreach="quotation.attachment_ids" t-as="i">
+                        <div>
+                            <a t-attf-href="/web/binary/saveas?model=ir.attachment&amp;field=datas&amp;filename_field=name&amp;id=#{i.id}"><t t-esc="i.name"/></a>         
+                        </div>                  
+                        </t>
+                     </section>
+            </xpath>
+            <xpath expr="//div[@class='row mt32']" position="attributes">
+                   <attribute name="class">css_editable_mode_hidden</attribute>
+            </xpath>
+            <xpath expr="//div[@t-field='quotation.website_description']" position="replace">
+                   <p></p>
+            </xpath>
+            <xpath expr="//t[@t-foreach='quotation.order_line']" position="replace">
+                   <p></p>
+            </xpath> 
+            <xpath expr="//div[@class='alert alert-success alert-dismissable']" position="after">
+                   <div class="alert alert-success alert-dismissable" t-if="message==4">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&amp;times;</button>
+                          Sale order made successfully!
+                      </div>
+            </xpath> 
+            <xpath expr="//div[@class='alert alert-success alert-dismissable']" position="after">
+                   <div class="alert alert-success alert-dismissable" t-if="message==5">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&amp;times;</button>
+                          Your image resent successuflly. We will review it. Thanks!
+                      </div>
+            </xpath> 
+            <xpath expr="//div[@class='alert alert-warning alert-dismissable']" position="after">
+                   <div class="alert alert-warning alert-dismissable" t-if="message==6">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&amp;times;</button>
+                          Thanks for your response. We will re-work and delivery AI file to you soon
+                      </div>
+            </xpath> 
+        </template>
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Website Quote frontend assets">
+        <xpath expr="." position="inside">
+            <link rel='stylesheet' href='/carryout_customization/static/src/css/custom_footer.css'/>
+        </xpath>
+      </template>
+        <template id="custom_footer" name="carryout.custom.footer" inherit_id="website.layout">           
+            <xpath expr="//footer" position="attributes">
+                   <attribute name="class">custom_footer</attribute>
+            </xpath>
+        </template>
+        <template id="custom_toolbar" inherit_id="website_quote.quotation_toolbar">
+            <xpath expr="." position="inside">
+                <div class="text-center hidden-print" t-if="quotation.state in ('justify_ai')">
+                     
+                          <a class="btn btn-success" t-attf-href="/quote/acceptai/#{quotation.id}/#{quotation.access_token}"
+                            t-if="days_valid &gt;= 0">
+                              <i class="fa fa-check"></i> Accept AI layout
+                          </a>
+                                
+                    <a class="btn btn-info fa fa-comment" type="submit" href="#discussion">
+                        Feedback
+                    </a>  <a class="btn btn-danger" t-attf-href="/quote/rejectai/#{quotation.id}/#{quotation.access_token}"
+                            t-if="days_valid &gt;= 0">
+                              <i class="fa fa-times"></i> Reject, remake AI layout
+                          </a>
+                </div>   
+                <div class="text-center hidden-print" t-if="quotation.state in ('image_rejected')">
+                     
+                          <a class="btn btn-success" t-attf-href="/quote/reaccept/#{quotation.id}/#{quotation.access_token}"
+                            t-if="days_valid &gt;= 0">
+                              <i class="fa fa-check"></i> Resend image file
+                          </a>
+                                
+                    <a class="btn btn-info fa fa-comment" type="submit" href="#discussion">
+                        Feedback
+                    </a>  <a class="btn btn-danger" t-attf-href="/quote/#{quotation.id}/#{quotation.access_token}/decline"
+                            t-if="days_valid &gt;= 0">
+                              <i class="fa fa-times"></i> Reject quotation
+                    </a>
+                </div>  
+            </xpath>
+        </template>
+        <!-- <template id="listing"> -->
+        <!--   <ul> -->
+        <!--     <li t-foreach="objects" t-as="object"> -->
+        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
+        <!--         <t t-esc="object.display_name"/> -->
+        <!--       </a> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </template> -->
+        <!-- <template id="object"> -->
+        <!--   <h1><t t-esc="object.display_name"/></h1> -->
+        <!--   <dl> -->
+        <!--     <t t-foreach="object._fields" t-as="field"> -->
+        <!--       <dt><t t-esc="field"/></dt> -->
+        <!--       <dd><t t-esc="object[field]"/></dd> -->
+        <!--     </t> -->
+        <!--   </dl> -->
+        <!-- </template> -->
+    </data>
+</openerp>

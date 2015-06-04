@@ -1,0 +1,10 @@
+- Item: main table
+- Attribute: list attributes of items - specification and tier pricing properties
+- lag_ecdb2_hierachy: categorize items 
+- SKU_Group: selling point and marketing copy
+- Brand: product brand, 1 product belong to 1 brand
+- Company: company produce product, 1 product belong to 1 company, 1 company can have multi brand
+- catalog and catalog_items: divide items in 3 different catalog: works, non-categorized, nationally stocked
+
+- Product line: not in used
+- lag_ecdb1_hierachy: no longer in use in ecdb2
